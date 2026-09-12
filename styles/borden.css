@@ -1,0 +1,58 @@
+/* Veiligheidssignalisatie. Alles wat Bootstrap of Quarto zelf kan, gebeurt in
+   de .qmd met hun eigen klassen. Hier staat enkel wat daar niet in zit. */
+
+/* 1. Handgeschreven grid, niet .grid/.g-col-*: die springt op vaste
+      breekpunten en rekt de tegels daartussen uit. auto-fill houdt elk bordje
+      even groot op elke schermbreedte. */
+.borden {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 1.1rem .7rem;
+  margin: 1.5rem 0;
+}
+
+/* 2. Witte tegel, ook op een donkere pagina, zodat een zwart pictogram
+      leesbaar blijft zonder omkleuren. Als losse Bootstrap-klassen stond dit
+      75 keer in de .qmd. De hoekstraal komt uit het thema. */
+.borden img,
+.tegel {
+  background: #fff;
+  padding: .5rem;
+  border-radius: var(--bs-border-radius);
+}
+
+/* 3. Rond, driehoekig en rechthoekig hebben elk een andere verhouding. Een
+      vierkant vakje met object-fit zet ze even groot en legt de bijschriften op
+      één lijn. Bootstrap's .ratio-1x1 werkt op een wikkel-div en niet op de
+      <img>, wat 50 extra divs zou kosten.
+
+      .tegel-blok doet hetzelfde buiten een galerij, waar een bord naast een
+      productfoto staat. Daar blijft de breedte wel uit de .qmd komen, anders
+      wordt een handschoen over een halve kolom belachelijk groot. Losse .tegel
+      blijft ongemoeid: die staat ook onder brede borden. */
+.borden img {
+  width: 100%;
+}
+
+.borden img,
+.tegel-blok {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+/* 4. Quarto's <figure> heeft 1em ondermarge, wat in een grid met eigen gap
+      dubbel telt. */
+.borden figure {
+  margin-bottom: 0;
+}
+
+/* 5. De vijf ISO-kleuren, gemeten uit de pictogrammen, niet gekozen.
+      Bootstrap's .bg-danger en .bg-warning zijn flatly's oranje en turkoois en
+      zouden hier iets anders leren dan een echt bord. Het !important volgt
+      Bootstrap's eigen .bg-*-klassen, zonder dat wint `.table > * > *` in de
+      tabel van @sec-matrix. */
+.bg-verbod       { background-color: #a81728 !important; color: #fff !important; }
+.bg-waarschuwing { background-color: #f0b816 !important; color: #111 !important; }
+.bg-gebod        { background-color: #244a84 !important; color: #fff !important; }
+.bg-eerstehulp   { background-color: #237c4d !important; color: #fff !important; }
+.bg-brand        { background-color: #9a1a1d !important; color: #fff !important; }

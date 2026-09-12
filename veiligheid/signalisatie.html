@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl" xml:lang="nl"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Veiligheidssignalisatie – Techniek 1</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../veiligheid/pbm.html" rel="next">
+<link href="../assets/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fad2c0eca6cb8487b190b2e7e5f9767b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-383028492d6b6edd4c4593ae417adb0f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fad2c0eca6cb8487b190b2e7e5f9767b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Geen resultaten",
+    "search-matching-documents-text": "Gevonden documenten",
+    "search-copy-link-title": "Kopieer link om te zoeken",
+    "search-hide-matches-text": "Extra overeenkomsten verbergen",
+    "search-more-match-text": "meer overeenkomst in dit document",
+    "search-more-matches-text": "meer overeenkomsten in dit document",
+    "search-clear-button-title": "Wissen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuleren",
+    "search-submit-button-title": "Verzenden",
+    "search-label": "Zoeken"
+  }
+}</script>
+<meta name="robots" content="noindex, nofollow">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles/borden.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/vp-logo.png" alt="" class="navbar-logo light-content">
+    <img src="../assets/vp-logo.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Techniek 1</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Zoeken"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Schakel navigatie" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../bibberspiraal/tekenen.html"> 
+<span class="menu-text">Bibberspiraal</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Schakel donkere modus"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Schakel zijbalknavigatie" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../veiligheid/signalisatie.html">Veiligheid</a></li><li class="breadcrumb-item"><a href="../veiligheid/signalisatie.html">Veiligheidssignalisatie</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Schakel zijbalknavigatie" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veiligheid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Schakel sectie">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../veiligheid/signalisatie.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Veiligheidssignalisatie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../veiligheid/pbm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Persoonlijke beschermingsmiddelen</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Op deze pagina</h2>
+   
+  <ul>
+  <li><a href="#sec-intro" id="toc-sec-intro" class="nav-link active" data-scroll-target="#sec-intro"><span class="header-section-number">1</span> Een lokaal vol tekens</a></li>
+  <li><a href="#sec-waarom" id="toc-sec-waarom" class="nav-link" data-scroll-target="#sec-waarom"><span class="header-section-number">2</span> Waarom borden, en geen zinnen?</a></li>
+  <li><a href="#sec-kleur-vorm" id="toc-sec-kleur-vorm" class="nav-link" data-scroll-target="#sec-kleur-vorm"><span class="header-section-number">3</span> Kleur en vorm doen het werk</a>
+  <ul class="collapse">
+  <li><a href="#sec-vijf" id="toc-sec-vijf" class="nav-link" data-scroll-target="#sec-vijf"><span class="header-section-number">3.1</span> De vijf soorten</a></li>
+  <li><a href="#sec-matrix" id="toc-sec-matrix" class="nav-link" data-scroll-target="#sec-matrix"><span class="header-section-number">3.2</span> Vorm × kleur</a></li>
+  </ul></li>
+  <li><a href="#sec-verbod" id="toc-sec-verbod" class="nav-link" data-scroll-target="#sec-verbod"><span class="header-section-number">4</span> Verbodsborden</a></li>
+  <li><a href="#sec-waarschuwing" id="toc-sec-waarschuwing" class="nav-link" data-scroll-target="#sec-waarschuwing"><span class="header-section-number">5</span> Waarschuwingsborden</a></li>
+  <li><a href="#sec-gebod" id="toc-sec-gebod" class="nav-link" data-scroll-target="#sec-gebod"><span class="header-section-number">6</span> Gebodsborden</a></li>
+  <li><a href="#sec-eerstehulp" id="toc-sec-eerstehulp" class="nav-link" data-scroll-target="#sec-eerstehulp"><span class="header-section-number">7</span> Eerstehulpborden</a></li>
+  <li><a href="#sec-brand" id="toc-sec-brand" class="nav-link" data-scroll-target="#sec-brand"><span class="header-section-number">8</span> Brandpreventieborden</a></li>
+  <li><a href="#sec-verbanden" id="toc-sec-verbanden" class="nav-link" data-scroll-target="#sec-verbanden"><span class="header-section-number">9</span> Verbanden om te onthouden</a>
+  <ul class="collapse">
+  <li><a href="#sec-omkeren" id="toc-sec-omkeren" class="nav-link" data-scroll-target="#sec-omkeren"><span class="header-section-number">9.1</span> Dezelfde tekening, tegenovergestelde boodschap</a></li>
+  <li><a href="#sec-twee-roden" id="toc-sec-twee-roden" class="nav-link" data-scroll-target="#sec-twee-roden"><span class="header-section-number">9.2</span> Twee keer rood, twee keer iets anders</a></li>
+  <li><a href="#sec-algemeen" id="toc-sec-algemeen" class="nav-link" data-scroll-target="#sec-algemeen"><span class="header-section-number">9.3</span> Elke familie heeft een “algemeen” bord</a></li>
+  </ul></li>
+  <li><a href="#sec-slot" id="toc-sec-slot" class="nav-link" data-scroll-target="#sec-slot"><span class="header-section-number">10</span> Waarom je die borden volgt</a></li>
+  <li><a href="#sec-oefeningen" id="toc-sec-oefeningen" class="nav-link" data-scroll-target="#sec-oefeningen"><span class="header-section-number">11</span> Oefeningen</a></li>
+  <li><a href="#sec-samenvatting" id="toc-sec-samenvatting" class="nav-link" data-scroll-target="#sec-samenvatting"><span class="header-section-number">12</span> Samengevat</a></li>
+  <li><a href="#sec-bronnen" id="toc-sec-bronnen" class="nav-link" data-scroll-target="#sec-bronnen"><span class="header-section-number">13</span> Bronnen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../veiligheid/signalisatie.html">Veiligheid</a></li><li class="breadcrumb-item"><a href="../veiligheid/signalisatie.html">Veiligheidssignalisatie</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Veiligheidssignalisatie</h1>
+<p class="subtitle lead">Borden lezen in het atelier</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- Leerplandoel I-TECa LPD 1 (Techniek - I A, Katholiek Onderwijs Vlaanderen,
+     versie 3.0.0): de leerlingen werken op een veilige en duurzame manier met
+     materialen, stoffen, organismen en technische systemen.
+     Concordantie: minimumdoel MD 06.39.
+
+     Deze les werkt vooral de pedagogische wenk rond pictogrammen als
+     informatiebron uit. Ze hoort samen met pbm.qmd: hier leren de leerlingen
+     borden lezen, daar leren ze wat het bord van hen vraagt.
+
+     Leerstof naar de presentatie Signalisatie2B (Don Bosco Hoboken, 2023).
+     De pictogrammen zijn de officiële ISO 7010-tekeningen van Wikimedia
+     Commons. Ze staan als SVG in images/ met hun ISO-code als
+     bestandsnaam. -->
+<div class="callout callout-style-default callout-note callout-titled" title="Waar je naartoe werkt">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Opmerking</span>Waar je naartoe werkt
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Na deze les kan je:</p>
+<ul>
+<li>uitleggen waarom veiligheidsborden bijna geen tekst bevatten</li>
+<li>aan de <strong>kleur</strong> en de <strong>vorm</strong> van een bord zien wat voor soort boodschap het is</li>
+<li>de vijf soorten borden benoemen en er voorbeelden van geven</li>
+<li>een bord dat je nog nooit gezien hebt toch begrijpen</li>
+</ul>
+<p>Achteraan staan oefeningen. Bij elke oefening zit een oplossing verstopt: je ziet ze pas als je erop klikt. Probeer eerst zelf.</p>
+</div>
+</div>
+<section id="sec-intro" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Een lokaal vol tekens</h1>
+<p>De eerste keer dat je een technieklokaal of een atelier binnenstapt, hangt er van alles aan de muur. Aan de deur, boven de machines, naast de kast met verf. Kleine gekleurde bordjes, meestal zonder één woord erop.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M002.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Zie instructieboekje of handleiding"><img src="../images/M002.svg" class="tegel img-fluid figure-img" alt="Blauw rond bord: een figuur die een boekje leest" width="200"></a></p>
+<figcaption>Zie instructieboekje of handleiding</figcaption>
+</figure>
+</div>
+</div>
+<p>Toch begrijpt iedereen ze: iemand die hier nog nooit geweest is, iemand die geen Nederlands spreekt, iemand die haast heeft en het bord alleen vanuit een ooghoek ziet.</p>
+<p>Die bordjes zijn zo <em>ontworpen</em>. In deze les leer je hoe ze in elkaar zitten, en daarna kan je ze allemaal lezen.</p>
+</section>
+<section id="sec-waarom" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Waarom borden, en geen zinnen?</h1>
+<p>Op het werk zijn er allerlei gevaren en risico’s. Die <strong>moeten</strong> gesignaleerd worden. Het is een wettelijke verplichting.</p>
+<p>Een goede signalisatie is:</p>
+<ul>
+<li><strong>eenvoudig</strong>, je snapt ze in een halve seconde</li>
+<li><strong>makkelijk te begrijpen</strong>, ook zonder de taal te kennen</li>
+<li><strong>altijd en overal duidelijk zichtbaar</strong></li>
+</ul>
+<p>Een zin voldoet aan geen van die drie. Lezen kost tijd, en je moet de taal kennen. Daarom is er voor elk gevaar, elk gebod (verplichting), elk verbod en elk reddingsmiddel <strong>één duidelijk teken</strong>, met een eigen vorm, een eigen symbool, een eigen kleur en zo weinig mogelijk tekst.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="ISO 7010">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Belangrijk</span>ISO 7010
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Die vormen, kleuren en tekeningen zijn <strong>internationaal afgesproken</strong>. De afspraak heeft een naam: <strong>ISO 7010</strong>. Daardoor ziet een nooduitgangbord er in Schoten net hetzelfde uit als in Rome of in Tokio.</p>
+</div>
+</div>
+</section>
+<section id="sec-kleur-vorm" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Kleur en vorm doen het werk</h1>
+<p>Een bord vertelt je twee dingen tegelijk, en het doet dat met twee verschillende middelen.</p>
+<div class="grid">
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100">
+<div class="card-body">
+<p><span class="badge rounded-pill text-bg-primary me-1">1</span> <strong>De kleur zegt: wat voor soort?</strong></p>
+<p>Rood is een verbod, geel een waarschuwing, blauw een verplichting, groen wijst je de weg naar veiligheid.</p>
+</div>
+</div>
+</div>
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100">
+<div class="card-body">
+<p><span class="badge rounded-pill text-bg-primary me-1">2</span> <strong>De vorm bevestigt dat.</strong></p>
+<p>Rond, driehoekig of rechthoekig. Kleur en vorm horen bij elkaar als een paar.</p>
+</div>
+</div>
+</div>
+<div class="g-col-12 g-col-md-4">
+<div class="card h-100">
+<div class="card-body">
+<p><span class="badge rounded-pill text-bg-primary me-1">3</span> <strong>Het symbool zegt: waarover?</strong></p>
+<p>Een sigaret, een bliksemschicht, een handschoen. Dat is het onderwerp van het bord.</p>
+</div>
+</div>
+</div>
+</div>
+<p>Daarom hoef je niet honderd borden vanbuiten te leren. Als je het systeem kent, kan je een bord lezen dat je nog nooit gezien hebt.</p>
+<section id="sec-vijf" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-vijf"><span class="header-section-number">3.1</span> De vijf soorten</h2>
+<div class="grid" style="--bs-columns: 10;">
+<div class="g-col-10 g-col-sm-5 g-col-xl-2">
+<div class="card h-100">
+<div class="card-header bg-verbod fw-bold">
+<svg width="22" height="22" viewbox="0 0 26 26" aria-hidden="true">
+<circle cx="13" cy="13" r="10" fill="none" stroke="currentColor" stroke-width="2.4"></circle><line x1="6" y1="20" x2="20" y2="6" stroke="currentColor" stroke-width="2.4"></line>
+</svg>
+<p>Verbod</p>
+</div>
+<div class="card-body small">
+<p><strong>Je mag niet…</strong> Het verbodsbord houdt je tegen.</p>
+</div>
+</div>
+</div>
+<div class="g-col-10 g-col-sm-5 g-col-xl-2">
+<div class="card h-100">
+<div class="card-header bg-waarschuwing fw-bold">
+<svg width="22" height="22" viewbox="0 0 26 26" aria-hidden="true">
+<polygon points="13,3.5 23.5,21.5 2.5,21.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"></polygon>
+</svg>
+<p>Waarschuwing</p>
+</div>
+<div class="card-body small">
+<p><strong>Pas op voor…</strong> Het waarschuwingsbord wijst op gevaar.</p>
+</div>
+</div>
+</div>
+<div class="g-col-10 g-col-sm-5 g-col-xl-2">
+<div class="card h-100">
+<div class="card-header bg-gebod fw-bold">
+<svg width="22" height="22" viewbox="0 0 26 26" aria-hidden="true">
+<circle cx="13" cy="13" r="10" fill="none" stroke="currentColor" stroke-width="2.4"></circle>
+</svg>
+<p>Gebod</p>
+</div>
+<div class="card-body small">
+<p><strong>Je moet…</strong> Het gebodsbord legt je iets op.</p>
+</div>
+</div>
+</div>
+<div class="g-col-10 g-col-sm-5 g-col-xl-2">
+<div class="card h-100">
+<div class="card-header bg-eerstehulp fw-bold">
+<svg width="22" height="22" viewbox="0 0 26 26" aria-hidden="true">
+<rect x="3" y="6" width="20" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="2.4"></rect>
+</svg>
+<p>Eerste hulp</p>
+</div>
+<div class="card-body small">
+<p><strong>Ga naar…</strong> Hier vind je hulp of een uitgang.</p>
+</div>
+</div>
+</div>
+<div class="g-col-10 g-col-sm-5 g-col-xl-2">
+<div class="card h-100">
+<div class="card-header bg-brand fw-bold">
+<svg width="22" height="22" viewbox="0 0 26 26" aria-hidden="true">
+<rect x="3" y="6" width="20" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="2.4"></rect>
+</svg>
+<p>Brandpreventie</p>
+</div>
+<div class="card-body small">
+<p><strong>Hier vind je…</strong> blusmateriaal en brandmelders.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-matrix" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-matrix"><span class="header-section-number">3.2</span> Vorm × kleur</h2>
+<p>Zet je de vormen en de kleuren in een tabel, dan zie je meteen dat lang niet elke combinatie bestaat. Er zijn maar zes gevulde vakjes, en die zes moet je kennen.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kleur</th>
+<th style="text-align: center;">Rond</th>
+<th style="text-align: center;">Driehoek</th>
+<th style="text-align: center;">Rechthoek</th>
+<th style="text-align: left;">Betekent…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rood</td>
+<td class="bg-verbod fw-semibold" style="text-align: center;"> Verbod</td>
+<td class="text-body-secondary" style="text-align: center;"> –</td>
+<td class="bg-brand fw-semibold" style="text-align: center;"> Brandpreventie</td>
+<td style="text-align: left;">Verboden te… / Je mag niet…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Geel</td>
+<td class="text-body-secondary" style="text-align: center;"> –</td>
+<td class="bg-waarschuwing fw-semibold" style="text-align: center;"> Waarschuwing</td>
+<td class="text-body-secondary" style="text-align: center;"> –</td>
+<td style="text-align: left;">Pas op voor… / Opgelet!</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Groen</td>
+<td class="text-body-secondary" style="text-align: center;"> –</td>
+<td class="text-body-secondary" style="text-align: center;"> –</td>
+<td class="bg-eerstehulp fw-semibold" style="text-align: center;"> EHBO</td>
+<td style="text-align: left;">Nooduitgang / Ga naar…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Blauw</td>
+<td class="bg-gebod fw-semibold" style="text-align: center;"> Gebod</td>
+<td class="text-body-secondary" style="text-align: center;"> –</td>
+<td class="bg-gebod fw-semibold" style="text-align: center;"> Aanwijzing</td>
+<td style="text-align: left;">Verplicht te… / Je moet…</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Geel bestaat alleen als driehoek</strong>, en een driehoek is altijd geel. Die twee horen onlosmakelijk bij elkaar. <strong>Rood komt twee keer voor</strong>, één keer rond en één keer rechthoekig. Op dat verschil komen we terug in <a href="#sec-verbanden" class="quarto-xref">Paragraaf&nbsp;9</a>.</p>
+</section>
+</section>
+<section id="sec-verbod" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Verbodsborden</h1>
+<p>Verbodsborden geven aan dat iets <strong>verboden</strong> is, dat je iets <strong>niet mag</strong> doen. Ze zijn rond en wit, met een rode rand en een rode balk schuin over de tekening.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Het algemeen verbodsteken"><img src="../images/P001.svg" class="tegel img-fluid figure-img" alt="Rode cirkel met een schuine balk, verder leeg" width="200"></a></p>
+<figcaption>Het algemeen verbodsteken</figcaption>
+</figure>
+</div>
+</div>
+<p>Dit lege bord is het <strong>algemeen verbodsteken</strong>. Alles wat er nog bij komt, is de tekening in het midden: de sigaret, de kraan, de heftruck.</p>
+<p>Een verbod is er bijna altijd om je te <strong>beschermen</strong>. Door je eraan te houden, bescherm je jezelf of je werk tegen een gevaar of een probleem.</p>
+<div class="borden text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P001.svg" class="lightbox" data-gallery="verbod" title="Algemeen verbodsteken"><img src="../images/P001.svg" class="img-fluid figure-img" alt="Algemeen verbodsteken"></a></p>
+<figcaption>Algemeen verbodsteken</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P002.svg" class="lightbox" data-gallery="verbod" title="Verboden te roken"><img src="../images/P002.svg" class="img-fluid figure-img" alt="Verboden te roken"></a></p>
+<figcaption>Verboden te roken</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P003.svg" class="lightbox" data-gallery="verbod" title="Geen open vuur"><img src="../images/P003.svg" class="img-fluid figure-img" alt="Geen open vuur"></a></p>
+<figcaption>Geen open vuur</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P004.svg" class="lightbox" data-gallery="verbod" title="Geen doorgaande weg"><img src="../images/P004.svg" class="img-fluid figure-img" alt="Geen doorgaande weg"></a></p>
+<figcaption>Geen doorgaande weg</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P005.svg" class="lightbox" data-gallery="verbod" title="Geen drinkwater"><img src="../images/P005.svg" class="img-fluid figure-img" alt="Geen drinkwater"></a></p>
+<figcaption>Geen drinkwater</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P006.svg" class="lightbox" data-gallery="verbod" title="Geen toegang voor vorkheftrucks"><img src="../images/P006.svg" class="img-fluid figure-img" alt="Geen toegang voor vorkheftrucks"></a></p>
+<figcaption>Geen toegang voor vorkheftrucks</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P007.svg" class="lightbox" data-gallery="verbod" title="Geen toegang met een pacemaker"><img src="../images/P007.svg" class="img-fluid figure-img" alt="Geen toegang met een pacemaker"></a></p>
+<figcaption>Geen toegang met een pacemaker</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P008.svg" class="lightbox" data-gallery="verbod" title="Geen metalen voorwerpen of horloges"><img src="../images/P008.svg" class="img-fluid figure-img" alt="Geen metalen voorwerpen of horloges"></a></p>
+<figcaption>Geen metalen voorwerpen of horloges</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P010.svg" class="lightbox" data-gallery="verbod" title="Niet aanraken"><img src="../images/P010.svg" class="img-fluid figure-img" alt="Niet aanraken"></a></p>
+<figcaption>Niet aanraken</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P011.svg" class="lightbox" data-gallery="verbod" title="Niet blussen met water"><img src="../images/P011.svg" class="img-fluid figure-img" alt="Niet blussen met water"></a></p>
+<figcaption>Niet blussen met water</figcaption>
+</figure>
+</div>
+</div>
+<p>Kijk eens goed naar het laatste bord, <em>niet blussen met water</em>. De tekening toont net <em>wél</em> iemand die met water blust. De rode balk keert de betekenis om. Zonder die balk zou hetzelfde plaatje “blus met water” betekenen.</p>
+</section>
+<section id="sec-waarschuwing" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Waarschuwingsborden</h1>
+<p>Waarschuwingsborden zeggen: <strong>pas op, hier is gevaar</strong>. Ze verbieden niets en verplichten niets. Ze zijn een gele driehoek met een zwarte rand.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Het algemeen waarschuwingsteken"><img src="../images/W001.svg" class="tegel img-fluid figure-img" alt="Gele driehoek met een zwart uitroepteken" width="200"></a></p>
+<figcaption>Het algemeen waarschuwingsteken</figcaption>
+</figure>
+</div>
+</div>
+<p>Waarom moet je gewaarschuwd worden? Omdat je lang niet alle gevaar zelf kan zien.</p>
+<ul>
+<li>Elektriciteit is <strong>onzichtbaar</strong>.</li>
+<li>Gehoorschade merk je pas als het <strong>te laat</strong> is.</li>
+<li>Van een vergiftiging weet je het pas als je <strong>al ziek</strong> bent.</li>
+</ul>
+<p>Het bord maakt zichtbaar wat je zintuigen niet opmerken.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W012.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Elektriciteitsgevaar"><img src="../images/W012.svg" class="tegel img-fluid figure-img" alt="Gele driehoek met een zwarte bliksemschicht" width="200"></a></p>
+<figcaption>Elektriciteitsgevaar</figcaption>
+</figure>
+</div>
+</div>
+<div class="borden text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W001.svg" class="lightbox" data-gallery="waarschuwing" title="Algemeen waarschuwingsteken"><img src="../images/W001.svg" class="img-fluid figure-img" alt="Algemeen waarschuwingsteken"></a></p>
+<figcaption>Algemeen waarschuwingsteken</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W002.svg" class="lightbox" data-gallery="waarschuwing" title="Explosieve materialen"><img src="../images/W002.svg" class="img-fluid figure-img" alt="Explosieve materialen"></a></p>
+<figcaption>Explosieve materialen</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W003.svg" class="lightbox" data-gallery="waarschuwing" title="Radioactief materiaal of ioniserende straling"><img src="../images/W003.svg" class="img-fluid figure-img" alt="Radioactief materiaal of ioniserende straling"></a></p>
+<figcaption>Radioactief materiaal of ioniserende straling</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W004.svg" class="lightbox" data-gallery="waarschuwing" title="Laserstraal"><img src="../images/W004.svg" class="img-fluid figure-img" alt="Laserstraal"></a></p>
+<figcaption>Laserstraal</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W005.svg" class="lightbox" data-gallery="waarschuwing" title="Niet-ioniserende straling"><img src="../images/W005.svg" class="img-fluid figure-img" alt="Niet-ioniserende straling"></a></p>
+<figcaption>Niet-ioniserende straling</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W006.svg" class="lightbox" data-gallery="waarschuwing" title="Magnetisch veld"><img src="../images/W006.svg" class="img-fluid figure-img" alt="Magnetisch veld"></a></p>
+<figcaption>Magnetisch veld</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W007.svg" class="lightbox" data-gallery="waarschuwing" title="Obstakel op vloerniveau"><img src="../images/W007.svg" class="img-fluid figure-img" alt="Obstakel op vloerniveau"></a></p>
+<figcaption>Obstakel op vloerniveau</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W008.svg" class="lightbox" data-gallery="waarschuwing" title="Valgevaar"><img src="../images/W008.svg" class="img-fluid figure-img" alt="Valgevaar"></a></p>
+<figcaption>Valgevaar</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W012.svg" class="lightbox" data-gallery="waarschuwing" title="Elektriciteitsgevaar"><img src="../images/W012.svg" class="img-fluid figure-img" alt="Elektriciteitsgevaar"></a></p>
+<figcaption>Elektriciteitsgevaar</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-gebod" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Gebodsborden</h1>
+<p>Een gebodsbord legt je een regel <strong>op</strong>: het verplicht je om iets te doen. Ze zijn rond en volledig blauw, met een witte tekening.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M002.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Zie instructieboekje of handleiding"><img src="../images/M002.svg" class="tegel img-fluid figure-img" alt="Blauw rond bord met een lezende figuur" width="200"></a></p>
+<figcaption>Zie instructieboekje of handleiding</figcaption>
+</figure>
+</div>
+</div>
+<p>Veel gebodsborden gaan over kledij die je moet dragen: een bril, oordoppen, handschoenen, veiligheidsschoenen. Maar niet allemaal. Ook <em>lees eerst de handleiding</em> en <em>haal de stekker uit het stopcontact</em> zijn geboden.</p>
+<div class="borden text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M001.svg" class="lightbox" data-gallery="gebod" title="Algemeen gebodsteken"><img src="../images/M001.svg" class="img-fluid figure-img" alt="Algemeen gebodsteken"></a></p>
+<figcaption>Algemeen gebodsteken</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M002.svg" class="lightbox" data-gallery="gebod" title="Zie instructieboekje of handleiding"><img src="../images/M002.svg" class="img-fluid figure-img" alt="Zie instructieboekje of handleiding"></a></p>
+<figcaption>Zie instructieboekje of handleiding</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M003.svg" class="lightbox" data-gallery="gebod" title="Draag gehoorbescherming"><img src="../images/M003.svg" class="img-fluid figure-img" alt="Draag gehoorbescherming"></a></p>
+<figcaption>Draag gehoorbescherming</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M004.svg" class="lightbox" data-gallery="gebod" title="Draag oogbescherming"><img src="../images/M004.svg" class="img-fluid figure-img" alt="Draag oogbescherming"></a></p>
+<figcaption>Draag oogbescherming</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M005.svg" class="lightbox" data-gallery="gebod" title="Sluit een aardklem aan"><img src="../images/M005.svg" class="img-fluid figure-img" alt="Sluit een aardklem aan"></a></p>
+<figcaption>Sluit een aardklem aan</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M006.svg" class="lightbox" data-gallery="gebod" title="Haal de stekker uit het stopcontact"><img src="../images/M006.svg" class="img-fluid figure-img" alt="Haal de stekker uit het stopcontact"></a></p>
+<figcaption>Haal de stekker uit het stopcontact</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M007.svg" class="lightbox" data-gallery="gebod" title="Draag ondoorzichtige oogbescherming"><img src="../images/M007.svg" class="img-fluid figure-img" alt="Draag ondoorzichtige oogbescherming"></a></p>
+<figcaption>Draag ondoorzichtige oogbescherming</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M008.svg" class="lightbox" data-gallery="gebod" title="Draag voetbescherming"><img src="../images/M008.svg" class="img-fluid figure-img" alt="Draag voetbescherming"></a></p>
+<figcaption>Draag voetbescherming</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M009.svg" class="lightbox" data-gallery="gebod" title="Draag beschermende handschoenen"><img src="../images/M009.svg" class="img-fluid figure-img" alt="Draag beschermende handschoenen"></a></p>
+<figcaption>Draag beschermende handschoenen</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M010.svg" class="lightbox" data-gallery="gebod" title="Draag beschermende kleding"><img src="../images/M010.svg" class="img-fluid figure-img" alt="Draag beschermende kleding"></a></p>
+<figcaption>Draag beschermende kleding</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-eerstehulp" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Eerstehulpborden</h1>
+<p>Eerstehulpborden tonen waar <strong>hulp</strong> en <strong>medische voorzieningen</strong> te vinden zijn als er iets misgaat. Ze zijn groen met wit, en rechthoekig of vierkant.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Nooduitgang"><img src="../images/E001.svg" class="tegel img-fluid figure-img" alt="Groen bord met een lopende figuur die door een deur gaat" width="200"></a></p>
+<figcaption>Nooduitgang</figcaption>
+</figure>
+</div>
+</div>
+<p>Groen is de kleur van “hier moet je naartoe”. Deze borden wijzen je <em>ergens heen</em>. De andere soorten houden je vooral tegen of waarschuwen je.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E007.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="Verzamelpunt bij evacuatie"><img src="../images/E007.svg" class="tegel img-fluid figure-img" alt="Groen bord met vier pijlen die naar drie figuren wijzen" width="200"></a></p>
+<figcaption>Verzamelpunt bij evacuatie</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Evacueren</strong> betekent: een gebouw verlaten om ergens anders veilig te zijn. Bij brand, bij een gaslek, bij een machine die stukgaat. Dat gebeurt niet zomaar, maar volgens afspraken die op voorhand vastliggen. Daarom doe je op school evacuatieoefeningen.</p>
+<div class="borden text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E001.svg" class="lightbox" data-gallery="eerstehulp" title="Nooduitgang (links)"><img src="../images/E001.svg" class="img-fluid figure-img" alt="Nooduitgang (links)"></a></p>
+<figcaption>Nooduitgang (links)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E002.svg" class="lightbox" data-gallery="eerstehulp" title="Nooduitgang (rechts)"><img src="../images/E002.svg" class="img-fluid figure-img" alt="Nooduitgang (rechts)"></a></p>
+<figcaption>Nooduitgang (rechts)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E003.svg" class="lightbox" data-gallery="eerstehulp" title="Eerste hulp"><img src="../images/E003.svg" class="img-fluid figure-img" alt="Eerste hulp"></a></p>
+<figcaption>Eerste hulp</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E004.svg" class="lightbox" data-gallery="eerstehulp" title="Noodtelefoon"><img src="../images/E004.svg" class="img-fluid figure-img" alt="Noodtelefoon"></a></p>
+<figcaption>Noodtelefoon</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E005.svg" class="lightbox" data-gallery="eerstehulp" title="Richtingspijl (90°)"><img src="../images/E005.svg" class="img-fluid figure-img" alt="Richtingspijl (90°)"></a></p>
+<figcaption>Richtingspijl (90°)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E006.svg" class="lightbox" data-gallery="eerstehulp" title="Richtingspijl (45°)"><img src="../images/E006.svg" class="img-fluid figure-img" alt="Richtingspijl (45°)"></a></p>
+<figcaption>Richtingspijl (45°)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E007.svg" class="lightbox" data-gallery="eerstehulp" title="Verzamelpunt bij evacuatie"><img src="../images/E007.svg" class="img-fluid figure-img" alt="Verzamelpunt bij evacuatie"></a></p>
+<figcaption>Verzamelpunt bij evacuatie</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E008.svg" class="lightbox" data-gallery="eerstehulp" title="Breek om toegang te krijgen"><img src="../images/E008.svg" class="img-fluid figure-img" alt="Breek om toegang te krijgen"></a></p>
+<figcaption>Breek om toegang te krijgen</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E009.svg" class="lightbox" data-gallery="eerstehulp" title="Dokter"><img src="../images/E009.svg" class="img-fluid figure-img" alt="Dokter"></a></p>
+<figcaption>Dokter</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E010.svg" class="lightbox" data-gallery="eerstehulp" title="Automatische externe defibrillator"><img src="../images/E010.svg" class="img-fluid figure-img" alt="Automatische externe defibrillator"></a></p>
+<figcaption>Automatische externe defibrillator</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-brand" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Brandpreventieborden</h1>
+<p>Deze borden vertellen waar het <strong>blusmateriaal</strong> hangt en hoe je brand voorkomt. Ze zijn rood met wit, rechthoekig of vierkant.</p>
+<div class="text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-47" title="Brandblusser"><img src="../images/F001.svg" class="tegel img-fluid figure-img" alt="Rood bord met een witte brandblusser en vlammen" width="200"></a></p>
+<figcaption>Brandblusser</figcaption>
+</figure>
+</div>
+</div>
+<div class="borden text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F001.svg" class="lightbox" data-gallery="brand" title="Brandblusser"><img src="../images/F001.svg" class="img-fluid figure-img" alt="Brandblusser"></a></p>
+<figcaption>Brandblusser</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F002.svg" class="lightbox" data-gallery="brand" title="Brandhaspel"><img src="../images/F002.svg" class="img-fluid figure-img" alt="Brandhaspel"></a></p>
+<figcaption>Brandhaspel</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F003.svg" class="lightbox" data-gallery="brand" title="Brandladder"><img src="../images/F003.svg" class="img-fluid figure-img" alt="Brandladder"></a></p>
+<figcaption>Brandladder</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F004.svg" class="lightbox" data-gallery="brand" title="Brandbestrijdingsmateriaal"><img src="../images/F004.svg" class="img-fluid figure-img" alt="Brandbestrijdingsmateriaal"></a></p>
+<figcaption>Brandbestrijdingsmateriaal</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F005.svg" class="lightbox" data-gallery="brand" title="Handmelder"><img src="../images/F005.svg" class="img-fluid figure-img" alt="Handmelder"></a></p>
+<figcaption>Handmelder</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F006.svg" class="lightbox" data-gallery="brand" title="Brandalarmtelefoon"><img src="../images/F006.svg" class="img-fluid figure-img" alt="Brandalarmtelefoon"></a></p>
+<figcaption>Brandalarmtelefoon</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F007.svg" class="lightbox" data-gallery="brand" title="Brandwerende deur"><img src="../images/F007.svg" class="img-fluid figure-img" alt="Brandwerende deur"></a></p>
+<figcaption>Brandwerende deur</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/A090R.svg" class="lightbox" data-gallery="brand" title="Richtingspijl (90°)"><img src="../images/A090R.svg" class="img-fluid figure-img" alt="Richtingspijl (90°)"></a></p>
+<figcaption>Richtingspijl (90°)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/A045R.svg" class="lightbox" data-gallery="brand" title="Richtingspijl (45°)"><img src="../images/A045R.svg" class="img-fluid figure-img" alt="Richtingspijl (45°)"></a></p>
+<figcaption>Richtingspijl (45°)</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="sec-verbanden" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Verbanden om te onthouden</h1>
+<p>Nu je alle families gezien hebt, kan je een paar verbanden leggen. Ken je die drie, dan hoef je nauwelijks nog iets vanbuiten te leren.</p>
+<section id="sec-omkeren" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="sec-omkeren"><span class="header-section-number">9.1</span> Dezelfde tekening, tegenovergestelde boodschap</h2>
+<div class="border rounded p-3 text-center">
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P005.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-57" title="Geen drinkwater"><img src="../images/P005.svg" class="tegel img-fluid figure-img" width="120" alt="Geen drinkwater"></a></p>
+<figcaption>Geen drinkwater</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="fs-1 text-body-secondary"><span class="math inline">\(\neq\)</span></span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/drinkwater.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-58" title="Hier mag je drinken"><img src="../images/drinkwater.svg" class="tegel img-fluid figure-img" width="120" alt="Hier mag je drinken"></a></p>
+<figcaption>Hier mag je drinken</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Twee keer dezelfde kraan boven hetzelfde glas. De <strong>kleur en de vorm</strong> maken er een verbod of net een aanwijzing van. Het symbool alleen zegt dus niets. Je moet altijd het hele bord bekijken.</p>
+</section>
+<section id="sec-twee-roden" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sec-twee-roden"><span class="header-section-number">9.2</span> Twee keer rood, twee keer iets anders</h2>
+<div class="border rounded p-3 text-center">
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P011.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-59" title="Rond met een schuine balk een verbod"><img src="../images/P011.svg" class="tegel img-fluid figure-img" width="120" alt="Rond met een schuine balk een verbod"></a></p>
+<figcaption><strong>Rond</strong> met een schuine balk<br>een verbod</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span class="fs-1 text-body-secondary"><span class="math inline">\(\neq\)</span></span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-60" title="Rechthoekig en volledig rood blusmateriaal"><img src="../images/F001.svg" class="tegel img-fluid figure-img" width="120" alt="Rechthoekig en volledig rood blusmateriaal"></a></p>
+<figcaption><strong>Rechthoekig</strong> en volledig rood<br>blusmateriaal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Rood alleen is niet genoeg om te weten wat een bord bedoelt. Hier beslist de <strong>vorm</strong>: rond met een balk is verbieden, rechthoekig is aanwijzen waar de brandblusser hangt.</p>
+<p>Hetzelfde geldt voor de richtingspijlen. De groene wijst naar de uitgang, de rode naar het blusmateriaal, en toch is het exact dezelfde pijl.</p>
+</section>
+<section id="sec-algemeen" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-algemeen"><span class="header-section-number">9.3</span> Elke familie heeft een “algemeen” bord</h2>
+<div class="border rounded p-3 text-center">
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-61" title="Algemeen verbod"><img src="../images/P001.svg" class="tegel img-fluid figure-img" width="120" alt="Algemeen verbod"></a></p>
+<figcaption>Algemeen verbod</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/W001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-62" title="Algemene waarschuwing"><img src="../images/W001.svg" class="tegel img-fluid figure-img" width="120" alt="Algemene waarschuwing"></a></p>
+<figcaption>Algemene waarschuwing</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/M001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-63" title="Algemeen gebod"><img src="../images/M001.svg" class="tegel img-fluid figure-img" width="120" alt="Algemeen gebod"></a></p>
+<figcaption>Algemeen gebod</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Deze drie hebben geen eigen onderwerp. Ze zijn de kale vorm van hun familie en hangen er waar het gevaar of de regel geen eigen tekening heeft. Onder zo’n bord staat dan meestal wél een tekstbordje, want anders weet je nog altijd niet waarover het gaat.</p>
+</section>
+</section>
+<section id="sec-slot" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Waarom je die borden volgt</h1>
+<p>Signalisatie waarschuwt vakmensen voor gevaar, zorgt dat er maatregelen genomen worden en voorkomt ongevallen en letsels.</p>
+<p>Ze <strong>vertraagt</strong> je soms. Een bril halen, oordoppen indoen, eerst de handleiding lezen: dat kost tijd, en het is niet het leukste deel van je werk.</p>
+<p>Op lange termijn houdt het je gezond en veilig, en dus werk je er uiteindelijk beter door. Een oog dat je kwijtspeelt, komt niet terug.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Let op">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Waarschuwing</span>Let op
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Een bord is <strong>geen</strong> vervanging voor een veiligheidsmaatregel. Het bord “opgepast, snijgevaar” is geen alternatief voor de beschermkap op de machine. Het komt erbovenop.</p>
+</div>
+</div>
+</section>
+<section id="sec-oefeningen" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Oefeningen</h1>
+<p><strong>Opgave 1.</strong> Zeg bij elke beschrijving welk soort bord het is, zonder de tekening te zien.</p>
+<ol type="a">
+<li>rond, blauw · b. gele driehoek · c.&nbsp;groene rechthoek · d.&nbsp;rond met een rode balk</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Oplossing">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Oplossing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>gebodsbord (je moet…) · b. waarschuwingsbord (pas op…) ·</li>
+<li>eerstehulpbord (ga naar…) · d.&nbsp;verbodsbord (je mag niet…)</li>
+</ol>
+</div>
+</div>
+</div>
+<p><strong>Opgave 2.</strong> Aan de slijpmachine hangt dit bord. Wat moet je doen voor je ze aanzet?</p>
+<div class="text-center quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../images/M004.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-64"><img src="../images/M004.svg" class="tegel img-fluid" alt="Blauw rond bord met veiligheidsbril" width="120"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="../images/M003.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-65"><img src="../images/M003.svg" class="tegel img-fluid" alt="Blauw rond bord met gehoorkap" width="120"></a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Oplossing">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Oplossing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Allebei blauw en rond, dus allebei verplicht: een <strong>veiligheidsbril</strong> én <strong>gehoorbescherming</strong>. Er hangen twee borden, dus je hebt allebei nodig.</p>
+</div>
+</div>
+</div>
+<p><strong>Opgave 3.</strong> Dit bord is met opzet in grijs afgedrukt. Welke kleuren horen erbij?</p>
+<div class="text-center">
+<p><a href="../images/F002-grijs.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-66"><img src="../images/F002-grijs.svg" class="tegel img-fluid" alt="Vierkant bord in grijstinten met een brandhaspel en vlammen" width="200"></a></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Oplossing">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Oplossing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Rood met wit.</strong> Je ziet een brandhaspel, dus het gaat over blusmateriaal, en dat is de rode rechthoek.</p>
+<p>Je kon dit dus beredeneren zonder de kleur te zien: het <em>onderwerp</em> bepaalt de familie, en de familie bepaalt de kleur.</p>
+</div>
+</div>
+</div>
+<p><strong>Opgave 4.</strong> Dit bord heb je in deze les nog niet uitgelegd gekregen. Wat betekent het, denk je?</p>
+<div class="text-center">
+<p><a href="../images/W007.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-67"><img src="../images/W007.svg" class="tegel img-fluid" alt="Gele driehoek met een figuur die over iets struikelt" width="200"></a></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Oplossing">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Oplossing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Geel en driehoekig, dus een <strong>waarschuwing</strong>. De tekening toont iemand die struikelt over iets op de grond: <strong>obstakel op vloerniveau</strong>. Denk aan een verlengkabel over de gang of een drempel.</p>
+<p>Zo werkt het systeem: je kon het bord lezen zonder het ooit gezien te hebben.</p>
+</div>
+</div>
+</div>
+<p><strong>Opgave 5.</strong> Wat is het verschil tussen deze twee borden?</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/P011.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-68" title="links"><img src="../images/P011.svg" class="tegel img-fluid figure-img" alt="Rood doorstreept bord met emmer water boven vuur" width="120"></a></p>
+<figcaption>links</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-69" title="rechts"><img src="../images/F001.svg" class="tegel img-fluid figure-img" alt="Rood vierkant bord met brandblusser" width="120"></a></p>
+<figcaption>rechts</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Oplossing">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Oplossing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Links is <strong>rond met een schuine balk</strong>: een verbod, <em>niet blussen met water</em>. Rechts is <strong>rechthoekig</strong>, en dat is een aanwijzing: <em>hier hangt een brandblusser</em>.</p>
+<p>Allebei rood, dus de kleur helpt je hier niet. De vorm wel.</p>
+</div>
+</div>
+</div>
+<p><strong>Opgave 6.</strong> In het lokaal staat een 3D-printer. De printkop wordt meer dan 200 °C heet en je mag ze niet aanraken terwijl ze werkt.</p>
+<p>Welke twee borden zou jij ernaast hangen? Beschrijf telkens de kleur, de vorm en de tekening.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Oplossing">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Oplossing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Er zijn meerdere goede antwoorden. Bijvoorbeeld:</p>
+<ul>
+<li>een <strong>waarschuwing</strong> (gele driehoek) voor het hete oppervlak</li>
+<li>een <strong>verbod</strong> (rond, rode balk) om het aan te raken: <em>niet aanraken</em></li>
+<li>eventueel ook <em>lees eerst de handleiding</em>, blauw en rond</li>
+</ul>
+<p>Belangrijk is dat je gemotiveerd hebt waaróm je die kleur en vorm kiest.</p>
+</div>
+</div>
+</div>
+<p><strong>Opgave 7.</strong> Ga in de gang van de school op zoek. Welke van deze borden vind je terug, en waar hangen ze?</p>
+<div class="borden text-center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-70" title="Nooduitgang"><img src="../images/E001.svg" class="img-fluid figure-img" alt="Groen nooduitgangbord"></a></p>
+<figcaption>Nooduitgang</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E003.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-71" title="Eerste hulp"><img src="../images/E003.svg" class="img-fluid figure-img" alt="Groen bord met wit kruis"></a></p>
+<figcaption>Eerste hulp</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E005.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-72" title="Richtingspijl"><img src="../images/E005.svg" class="img-fluid figure-img" alt="Groene richtingspijl"></a></p>
+<figcaption>Richtingspijl</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/E010.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-73" title="Defibrillator"><img src="../images/E010.svg" class="img-fluid figure-img" alt="Groen bord met hart"></a></p>
+<figcaption>Defibrillator</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F001.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-74" title="Brandblusser"><img src="../images/F001.svg" class="img-fluid figure-img" alt="Rood bord met brandblusser"></a></p>
+<figcaption>Brandblusser</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/F005.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-75" title="Handmelder"><img src="../images/F005.svg" class="img-fluid figure-img" alt="Rood bord met handmelder"></a></p>
+<figcaption>Handmelder</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Tip">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kijk vooral bóven deuren en op de hoeken van gangen: nooduitgangborden hangen hoog, zodat je ze ook ziet als de gang vol mensen staat.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-samenvatting" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> Samengevat</h1>
+<ul>
+<li>Veiligheidsborden werken <strong>zonder woorden</strong>, zodat iedereen ze snel begrijpt. Ze zijn wettelijk verplicht en internationaal afgesproken (<strong>ISO 7010</strong>).</li>
+<li><strong>Kleur en vorm</strong> zeggen wat voor soort boodschap het is. Het <strong>symbool</strong> zegt waarover het gaat.</li>
+<li>Rond met rode balk = <strong>verbod</strong> · gele driehoek = <strong>waarschuwing</strong> · rond blauw = <strong>gebod</strong> · groene rechthoek = <strong>eerste hulp</strong> · rode rechthoek = <strong>brandpreventie</strong>.</li>
+<li>Een bord vervangt nooit een echte veiligheidsmaatregel.</li>
+</ul>
+</section>
+<section id="sec-bronnen" class="level1" data-number="13">
+<h1 data-number="13"><span class="header-section-number">13</span> Bronnen</h1>
+<ul>
+<li><a href="https://nl.wikipedia.org/wiki/ISO_7010">ISO 7010 op Wikipedia</a></li>
+<li><a href="https://admin.kuleuven.be/sab/vgm/kuleuven/veiligheidssignalisatie/algemeen">Veiligheidssignalisatie, KU Leuven</a></li>
+<li><a href="https://www.iso.org/obp/ui/#search">ISO Online Browsing Platform</a></li>
+<li>De pictogrammen komen van <a href="https://commons.wikimedia.org/wiki/Category:ISO_7010_safety_signs">Wikimedia Commons</a>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Gekopieerd!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Gekopieerd!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../veiligheid/pbm.html" class="pagination-link" aria-label="Persoonlijke beschermingsmiddelen">
+        <span class="nav-page-text">Persoonlijke beschermingsmiddelen</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><img src="../assets/vp-logo.png" alt="Vita et Pax" height="22"> Vita et Pax · Schoten</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

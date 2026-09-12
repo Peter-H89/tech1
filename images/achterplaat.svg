@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 272 347" width="272mm" height="347mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-16" y="-16" width="272" height="347" fill="#fff"/>
+<defs><pattern id="hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#111" stroke-width="0.25"/></pattern><pattern id="hatch2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(135)"><line x1="0" y1="0" x2="0" y2="3" stroke="#111" stroke-width="0.25"/></pattern></defs>
+<rect x="0.00" y="0.00" width="210.00" height="297.00" fill="none" stroke="#111" stroke-width="0.25" stroke-dasharray="2 1.5"/>
+<circle cx="105.00" cy="121.00" r="95.00" fill="#fff" stroke="#111" stroke-width="0.7"/>
+<polyline points="39.07,189.40 30.00,249.00 180.00,249.00 170.93,189.40" fill="#fff" stroke="#111" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M 39.07,189.40 A 95,95 0 1 1 170.93,189.40" fill="none" stroke="#111" stroke-width="0.7"/>
+<circle cx="105.00" cy="121.00" r="2.25" fill="#fff" stroke="#111" stroke-width="0.7"/>
+<line x1="105.00" y1="109.00" x2="105.00" y2="133.00" stroke="#111" stroke-width="0.25" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="93.00" y1="121.00" x2="117.00" y2="121.00" stroke="#111" stroke-width="0.25" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="10.00" y1="121.00" x2="10.00" y2="16.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="200.00" y1="121.00" x2="200.00" y2="16.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="10.00" y1="14.00" x2="200.00" y2="14.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="10.00,14.00 13.00,14.90 13.00,13.10" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="200.00,14.00 197.00,13.10 197.00,14.90" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="105.00" y="12.80" font-size="3.5" text-anchor="middle" fill="#111" font-weight="normal">Ø190</text>
+<line x1="30.00" y1="249.00" x2="30.00" y2="261.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="180.00" y1="249.00" x2="180.00" y2="261.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="30.00" y1="259.00" x2="180.00" y2="259.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="30.00,259.00 33.00,259.90 33.00,258.10" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="180.00,259.00 177.00,258.10 177.00,259.90" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="105.00" y="263.20" font-size="3.5" text-anchor="middle" fill="#111" font-weight="normal">150</text>
+<line x1="180.00" y1="216.00" x2="192.00" y2="216.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="180.00" y1="249.00" x2="192.00" y2="249.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="190.00" y1="216.00" x2="190.00" y2="249.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="190.00,216.00 189.10,219.00 190.90,219.00" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="190.00,249.00 190.90,246.00 189.10,246.00" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="191.20" y="232.50" font-size="3.5" text-anchor="middle" fill="#111" font-weight="normal" transform="rotate(-90 191.20 232.50)">33</text>
+<line x1="106.60" y1="119.40" x2="145.00" y2="91.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="106.60,119.40 109.55,118.34 108.48,116.89" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="146.00" y="92.20" font-size="3.5" text-anchor="start" fill="#111" font-weight="normal">Ø4,5, boren voor het kleuren</text>
+<text x="105.00" y="303.00" font-size="3.2" text-anchor="middle" fill="#111" font-weight="normal">A4, de tekening staat erop gedrukt. Snijden op de dikke lijn.</text>
+<rect x="216.00" y="40.00" width="12.00" height="4.00" fill="#d9c4a0" stroke="#111" stroke-width="0.25"/>
+<rect x="216.00" y="46.00" width="12.00" height="4.00" fill="#d9c4a0" stroke="#111" stroke-width="0.25"/>
+<rect x="216.00" y="52.00" width="12.00" height="1.50" fill="#fff" stroke="#111" stroke-width="0.25"/>
+<text x="222.00" y="34.00" font-size="3" text-anchor="middle" fill="#111" font-weight="normal">3 lagen</text>
+<text x="0.00" y="306.00" font-size="4.5" text-anchor="start" fill="#111" font-weight="bold">Achterplaat</text>
+<text x="0.00" y="312.00" font-size="3.2" text-anchor="start" fill="#111" font-weight="normal">maten in mm</text>
+</svg>

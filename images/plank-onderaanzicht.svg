@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 320 230" width="320mm" height="230mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-16" y="-16" width="320" height="230" fill="#fff"/>
+<defs><pattern id="hatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="3" stroke="#111" stroke-width="0.25"/></pattern><pattern id="hatch2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(135)"><line x1="0" y1="0" x2="0" y2="3" stroke="#111" stroke-width="0.25"/></pattern></defs>
+<rect x="0.00" y="0.00" width="248.00" height="150.00" fill="#efe3c8" stroke="#111" stroke-width="0.7"/>
+<rect x="0.00" y="0.00" width="20.00" height="20.00" fill="#e2d2ad" stroke="#111" stroke-width="0.7"/>
+<rect x="0.00" y="130.00" width="20.00" height="20.00" fill="#e2d2ad" stroke="#111" stroke-width="0.7"/>
+<rect x="228.00" y="0.00" width="20.00" height="20.00" fill="#e2d2ad" stroke="#111" stroke-width="0.7"/>
+<rect x="228.00" y="130.00" width="20.00" height="20.00" fill="#e2d2ad" stroke="#111" stroke-width="0.7"/>
+<line x1="-8.00" y1="75.00" x2="256.00" y2="75.00" stroke="#111" stroke-width="0.25" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="124.00" y1="-8.00" x2="124.00" y2="158.00" stroke="#111" stroke-width="0.25" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<circle cx="20.00" cy="75.00" r="1.35" fill="none" stroke="#111" stroke-width="0.7"/>
+<circle cx="228.00" cy="75.00" r="1.35" fill="none" stroke="#111" stroke-width="0.7"/>
+<circle cx="124.00" cy="132.00" r="3.00" fill="none" stroke="#111" stroke-width="0.7"/>
+<line x1="0.00" y1="0.00" x2="0.00" y2="-8.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="20.00" y1="0.00" x2="20.00" y2="-8.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="0.00" y1="-10.00" x2="20.00" y2="-10.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="0.00,-10.00 3.00,-9.10 3.00,-10.90" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="20.00,-10.00 17.00,-10.90 17.00,-9.10" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="10.00" y="-11.20" font-size="3.5" text-anchor="middle" fill="#111" font-weight="normal">20</text>
+<line x1="228.00" y1="0.00" x2="228.00" y2="-8.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="248.00" y1="0.00" x2="248.00" y2="-8.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="228.00" y1="-10.00" x2="248.00" y2="-10.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="228.00,-10.00 231.00,-9.10 231.00,-10.90" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="248.00,-10.00 245.00,-10.90 245.00,-9.10" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="238.00" y="-11.20" font-size="3.5" text-anchor="middle" fill="#111" font-weight="normal">20</text>
+<line x1="0.00" y1="0.00" x2="-12.00" y2="0.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="0.00" y1="20.00" x2="-12.00" y2="20.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<line x1="-10.00" y1="0.00" x2="-10.00" y2="20.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="-10.00,0.00 -10.90,3.00 -9.10,3.00" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="-10.00,20.00 -9.10,17.00 -10.90,17.00" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="-11.20" y="10.00" font-size="3.5" text-anchor="middle" fill="#111" font-weight="normal" transform="rotate(-90 -11.20 10.00)">20</text>
+<line x1="18.00" y1="148.00" x2="60.00" y2="166.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="18.00,148.00 20.40,150.01 21.11,148.35" fill="#111" stroke="#111" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="61.00" y="167.20" font-size="3.5" text-anchor="start" fill="#111" font-weight="normal">voetje 20 x 20, 24 hoog, 4x</text>
+<text x="124.00" y="-18.00" font-size="3.2" text-anchor="middle" fill="#111" font-weight="normal">voorkant</text>
+<text x="124.00" y="174.00" font-size="3.2" text-anchor="middle" fill="#111" font-weight="normal">achterkant</text>
+<text x="0.00" y="189.00" font-size="4.5" text-anchor="start" fill="#111" font-weight="bold">Voet, onderaanzicht (zonder de elektronica)</text>
+<text x="0.00" y="195.00" font-size="3.2" text-anchor="start" fill="#111" font-weight="normal">maten in mm</text>
+</svg>
