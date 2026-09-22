@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 162 74" width="162mm" height="74mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-6" y="-6" width="162" height="74" fill="#fff"/>
+<polygon points="4.00,26.00 60.00,26.00 60.00,38.00 4.00,38.00" fill="#efe3c8" stroke="#111" stroke-width="0.8" stroke-linejoin="round"/>
+<polygon points="4.00,26.00 17.00,13.00 73.00,13.00 60.00,26.00" fill="#efe3c8" stroke="#111" stroke-width="0.8" stroke-linejoin="round"/>
+<polygon points="60.00,26.00 73.00,13.00 73.00,25.00 60.00,38.00" fill="#efe3c8" stroke="#111" stroke-width="0.8" stroke-linejoin="round"/>
+<circle cx="24.00" cy="20.00" r="1.60" fill="none" stroke="#111" stroke-width="0.3"/>
+<circle cx="52.00" cy="20.00" r="1.60" fill="none" stroke="#111" stroke-width="0.3"/>
+<text x="36.00" y="45.00" font-size="3" text-anchor="middle" fill="#111" font-weight="normal" font-style="normal">de plank zoals ze op tafel ligt</text>
+<text x="36.00" y="6.00" font-size="3" text-anchor="middle" fill="#111" font-weight="normal" font-style="normal">je kijkt er recht van boven op</text>
+<line x1="36.00" y1="8.00" x2="36.00" y2="14.00" stroke="#111" stroke-width="0.25" stroke-linecap="round"/>
+<polygon points="36.00,15.00 34.90,11.00 37.10,11.00" fill="#111" stroke="none"/>
+<rect x="84.00" y="18.00" width="60.00" height="30.00" fill="#efe3c8" stroke="#111" stroke-width="0.8"/>
+<circle cx="96.00" cy="33.00" r="1.60" fill="none" stroke="#111" stroke-width="0.3"/>
+<line x1="91.00" y1="33.00" x2="101.00" y2="33.00" stroke="#111" stroke-width="0.3" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="96.00" y1="28.00" x2="96.00" y2="38.00" stroke="#111" stroke-width="0.3" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<circle cx="132.00" cy="33.00" r="1.60" fill="none" stroke="#111" stroke-width="0.3"/>
+<line x1="127.00" y1="33.00" x2="137.00" y2="33.00" stroke="#111" stroke-width="0.3" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="132.00" y1="28.00" x2="132.00" y2="38.00" stroke="#111" stroke-width="0.3" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<text x="114.00" y="55.00" font-size="3" text-anchor="middle" fill="#111" font-weight="normal" font-style="normal">het bovenaanzicht: dat teken jij</text>
+</svg>
