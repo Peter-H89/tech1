@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 107.00 87.92" width="107.00mm" height="87.92mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-6" y="-6" width="107.00" height="87.92" fill="#fff"/>
+<g transform="scale(0.5)">
+<rect x="95.00" y="53.83" width="10.00" height="50.00" fill="#e6eef5" stroke="#111" stroke-width="1.00"/>
+<line x1="100.00" y1="53.83" x2="100.00" y2="103.83" stroke="#c1272d" stroke-width="1.20" stroke-dasharray="4.00 3.00" stroke-linecap="round"/>
+<path d="M 100.00,103.83 Q 102.00,125.83 116.00,133.83 Q 126.00,139.83 122.00,149.83" fill="none" stroke="#c1272d" stroke-width="1.20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 95.50,53.83 H 104.50 Q 105.00,65.83 102.50,69.83 Q 101.00,77.83 99.50,71.83 Q 98.00,75.83 96.50,67.83 Q 95.00,61.83 95.50,53.83 Z" fill="#f5ecc0" stroke="#111" stroke-width="0.50" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="97.00" y1="58.33" x2="70.00" y2="63.83" stroke="#111" stroke-width="0.40" stroke-linecap="round"/>
+<polygon points="97.00,58.33 91.48,61.29 90.76,57.76" fill="#111" stroke="#111" stroke-width="0.00" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="67.60" y="66.23" font-size="6.00" text-anchor="end" fill="#111" font-weight="normal" font-style="italic">lijm vanbinnen</text>
+<line x1="105.00" y1="53.83" x2="119.00" y2="53.83" stroke="#111" stroke-width="0.50" stroke-linecap="round"/>
+<line x1="105.00" y1="103.83" x2="119.00" y2="103.83" stroke="#111" stroke-width="0.50" stroke-linecap="round"/>
+<line x1="115.00" y1="53.83" x2="115.00" y2="103.83" stroke="#111" stroke-width="0.50" stroke-linecap="round"/>
+<polygon points="115.00,53.83 116.80,59.83 113.20,59.83" fill="#111" stroke="#111" stroke-width="0.00" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="115.00,103.83 113.20,97.83 116.80,97.83" fill="#111" stroke="#111" stroke-width="0.00" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="112.60" y="78.83" font-size="7.00" text-anchor="middle" fill="#111" font-weight="normal" font-style="normal" transform="rotate(-90 112.60 78.83)">50</text>
+<circle cx="100.00" cy="37.92" r="15.92" fill="none" stroke="#b87333" stroke-width="2.00"/>
+<path d="M 92.37,51.88 A 15.92,15.92 0 0 0 107.63,51.88" fill="none" stroke="#666" stroke-width="3.60" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="106.50" y1="50.83" x2="139.00" y2="44.83" stroke="#111" stroke-width="0.40" stroke-linecap="round"/>
+<polygon points="106.50,50.83 112.07,47.97 112.73,51.51" fill="#111" stroke="#111" stroke-width="0.00" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="141.40" y="47.23" font-size="6.00" text-anchor="start" fill="#111" font-weight="normal" font-style="italic">soldeerplek</text>
+</g>
+</svg>

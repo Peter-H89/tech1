@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 107.00 87.92" width="107.00mm" height="87.92mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-6" y="-6" width="107.00" height="87.92" fill="#fff"/>
+<g transform="scale(0.5)">
+<rect x="95.00" y="53.83" width="10.00" height="50.00" fill="#e6eef5" stroke="#111" stroke-width="1.00"/>
+<line x1="100.00" y1="53.83" x2="100.00" y2="103.83" stroke="#c1272d" stroke-width="1.20" stroke-dasharray="4.00 3.00" stroke-linecap="round"/>
+<path d="M 100.00,103.83 Q 102.00,125.83 116.00,133.83 Q 126.00,139.83 122.00,149.83" fill="none" stroke="#c1272d" stroke-width="1.20" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="100.00" y1="53.83" x2="100.00" y2="48.83" stroke="#c1272d" stroke-width="1.20" stroke-linecap="round"/>
+<line x1="100.00" y1="48.83" x2="100.00" y2="45.83" stroke="#b87333" stroke-width="1.00" stroke-linecap="round"/>
+<polyline points="82.00,45.83 118.00,45.83" fill="none" stroke="#b87333" stroke-width="1.00" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 98.00,39.70 A 15.92,15.92 0 1 1 102.00,39.70" fill="none" stroke="#b87333" stroke-width="2.00" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="114.00" y1="46.43" x2="139.00" y2="51.83" stroke="#111" stroke-width="0.40" stroke-linecap="round"/>
+<polygon points="114.00,46.43 120.24,45.94 119.48,49.46" fill="#111" stroke="#111" stroke-width="0.00" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="141.40" y="54.23" font-size="6.00" text-anchor="start" fill="#111" font-weight="normal" font-style="italic">twee bundels</text>
+</g>
+</svg>
