@@ -1,0 +1,59 @@
+/* Safety signage, opted in per page from veiligheid/. Anything Bootstrap or
+   Quarto can do happens in the .qmd with their own classes. Only what they
+   lack is here. */
+
+/* 1. A hand-written grid, not .grid/.g-col-*: that one jumps at fixed
+      breakpoints and stretches the tiles in between. auto-fill keeps every
+      sign the same size at every screen width. */
+.borden {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 1.1rem .7rem;
+  margin: 1.5rem 0;
+}
+
+/* 2. A white tile, on a dark page too, so a black pictogram stays readable
+      without recolouring. As loose Bootstrap classes this stood 75 times in
+      the .qmd. The corner radius comes from the theme. */
+.borden img,
+.tegel {
+  background: #fff;
+  padding: .5rem;
+  border-radius: var(--bs-border-radius);
+}
+
+/* 3. Round, triangular and rectangular signs each have a different aspect
+      ratio. A square box with object-fit makes them the same size and lines
+      up the captions. Bootstrap's .ratio-1x1 works on a wrapper div and not on
+      the <img>, which would cost 50 extra divs.
+
+      .tegel-blok does the same outside a gallery, where a sign sits beside a
+      product photo. There the width still comes from the .qmd, otherwise a
+      glove across half a column becomes absurdly large. Plain .tegel is left
+      alone: it also sits under wide signs. */
+.borden img {
+  width: 100%;
+}
+
+.borden img,
+.tegel-blok {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+/* 4. Quarto's <figure> has a 1em bottom margin, which counts double in a
+      grid with its own gap. */
+.borden figure {
+  margin-bottom: 0;
+}
+
+/* 5. The five ISO colours, measured from the pictograms, not chosen.
+      Bootstrap's .bg-danger and .bg-warning are flatly's orange and turquoise
+      and would teach something other than a real sign. The !important follows
+      Bootstrap's own .bg-* classes, without it `.table > * > *` wins in the
+      table of @sec-matrix. */
+.bg-verbod       { background-color: #a81728 !important; color: #fff !important; }
+.bg-waarschuwing { background-color: #f0b816 !important; color: #111 !important; }
+.bg-gebod        { background-color: #244a84 !important; color: #fff !important; }
+.bg-eerstehulp   { background-color: #237c4d !important; color: #fff !important; }
+.bg-brand        { background-color: #9a1a1d !important; color: #fff !important; }

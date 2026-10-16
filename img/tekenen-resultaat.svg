@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 156.50 113.00" width="156.50mm" height="113.00mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-4" y="-4" width="156.50" height="113.00" fill="#fff"/>
+<g transform="scale(0.5)">
+<rect x="0.00" y="0.00" width="297.00" height="210.00" fill="none" stroke="#bbb" stroke-width="0.50"/>
+<rect x="24.50" y="30.00" width="248.00" height="150.00" fill="none" stroke="#111" stroke-width="1.00"/>
+<rect x="73.50" y="30.00" width="150.00" height="12.00" fill="none" stroke="#111" stroke-width="1.00"/>
+<rect x="73.50" y="54.00" width="150.00" height="12.00" fill="none" stroke="#111" stroke-width="1.00"/>
+<line x1="16.50" y1="105.00" x2="280.50" y2="105.00" stroke="#111" stroke-width="0.50" stroke-dasharray="12.00 3.00 2.00 3.00" stroke-linecap="round"/>
+<line x1="148.50" y1="22.00" x2="148.50" y2="188.00" stroke="#111" stroke-width="0.50" stroke-dasharray="12.00 3.00 2.00 3.00" stroke-linecap="round"/>
+<circle cx="44.50" cy="105.00" r="1.40" fill="#111" stroke="#111" stroke-width="0.00"/>
+<circle cx="252.50" cy="105.00" r="1.40" fill="#111" stroke="#111" stroke-width="0.00"/>
+<circle cx="148.50" cy="48.00" r="1.40" fill="#111" stroke="#111" stroke-width="0.00"/>
+<circle cx="148.50" cy="160.00" r="1.40" fill="#111" stroke="#111" stroke-width="0.00"/>
+<text x="283.00" y="190.00" font-size="8.00" text-anchor="end" fill="#111" font-weight="normal" font-style="italic">je naam</text>
+<text x="283.00" y="200.00" font-size="8.00" text-anchor="end" fill="#111" font-weight="normal" font-style="italic">je klas</text>
+</g>
+</svg>
