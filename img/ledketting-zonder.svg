@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 120.00 111.00" width="120.00mm" height="111.00mm" font-family="Helvetica, Arial, sans-serif">
+<rect x="-6" y="-6" width="120.00" height="111.00" fill="#fff"/>
+<g transform="scale(1.5)">
+<path d="M 33.50,14.00 L 33.50,9.00 A 2.5,2.5 0 0 1 38.50,9.00 L 38.50,14.00 Z" fill="#1e88e5" stroke="#111" stroke-width="0.23" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="33.00" y="13.40" width="6.00" height="1.00" fill="#1e88e5" stroke="#111" stroke-width="0.17"/>
+<polyline points="34.70,14.00 34.70,16.00 21.00,16.00" fill="none" stroke="#8a8a8a" stroke-width="0.33" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="37.30,14.00 37.30,16.00 47.00,16.00" fill="none" stroke="#8a8a8a" stroke-width="0.33" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="21.00,16.00 20.75,15.47 20.50,15.14 20.25,15.14 20.00,15.47 19.75,16.00 19.50,16.53 19.25,16.86 19.00,16.86 18.75,16.53 18.50,16.00 18.25,15.47 18.00,15.14 17.75,15.14 17.50,15.47 17.25,16.00 17.00,16.53 16.75,16.86 16.50,16.86 16.25,16.53 16.00,16.00 15.75,15.47 15.50,15.14 15.25,15.14 15.00,15.47 14.75,16.00 14.50,16.53 14.25,16.86 14.00,16.86" fill="none" stroke="#8a8a8a" stroke-width="0.33" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="21.00,16.00 20.75,16.53 20.50,16.86 20.25,16.86 20.00,16.53 19.75,16.00 19.50,15.47 19.25,15.14 19.00,15.14 18.75,15.47 18.50,16.00 18.25,16.53 18.00,16.86 17.75,16.86 17.50,16.53 17.25,16.00 17.00,15.47 16.75,15.14 16.50,15.14 16.25,15.47 16.00,16.00 15.75,16.53 15.50,16.86 15.25,16.86 15.00,16.53 14.75,16.00 14.50,15.47 14.25,15.14 14.00,15.14" fill="none" stroke="#b87333" stroke-width="0.33" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="47.00,16.00 47.25,16.53 47.50,16.86 47.75,16.86 48.00,16.53 48.25,16.00 48.50,15.47 48.75,15.14 49.00,15.14 49.25,15.47 49.50,16.00 49.75,16.53 50.00,16.86 50.25,16.86 50.50,16.53 50.75,16.00 51.00,15.47 51.25,15.14 51.50,15.14 51.75,15.47 52.00,16.00 52.25,16.53 52.50,16.86 52.75,16.86 53.00,16.53 53.25,16.00 53.50,15.47 53.75,15.14 54.00,15.14" fill="none" stroke="#8a8a8a" stroke-width="0.33" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="47.00,16.00 47.25,15.47 47.50,15.14 47.75,15.14 48.00,15.47 48.25,16.00 48.50,16.53 48.75,16.86 49.00,16.86 49.25,16.53 49.50,16.00 49.75,15.47 50.00,15.14 50.25,15.14 50.50,15.47 50.75,16.00 51.00,16.53 51.25,16.86 51.50,16.86 51.75,16.53 52.00,16.00 52.25,15.47 52.50,15.14 52.75,15.14 53.00,15.47 53.25,16.00 53.50,16.53 53.75,16.86 54.00,16.86" fill="none" stroke="#b87333" stroke-width="0.33" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="14.00" y1="16.00" x2="14.00" y2="19.00" stroke="#b87333" stroke-width="0.33" stroke-linecap="round"/>
+<line x1="54.00" y1="16.00" x2="54.00" y2="19.00" stroke="#b87333" stroke-width="0.33" stroke-linecap="round"/>
+<line x1="14.00" y1="19.00" x2="14.00" y2="31.00" stroke="#c1272d" stroke-width="0.40" stroke-linecap="round"/>
+<line x1="14.00" y1="31.00" x2="14.00" y2="39.00" stroke="#c1272d" stroke-width="0.40" stroke-dasharray="1.00 1.00" stroke-linecap="round"/>
+<line x1="54.00" y1="19.00" x2="54.00" y2="31.00" stroke="#111" stroke-width="0.40" stroke-linecap="round"/>
+<line x1="54.00" y1="31.00" x2="54.00" y2="39.00" stroke="#111" stroke-width="0.40" stroke-dasharray="1.00 1.00" stroke-linecap="round"/>
+<text x="5.00" y="16.00" font-size="5.33" text-anchor="middle" fill="#111" font-weight="bold" font-style="normal">+</text>
+<text x="67.00" y="16.00" font-size="5.33" text-anchor="middle" fill="#111" font-weight="bold" font-style="normal">&#8722;</text>
+</g>
+</svg>
